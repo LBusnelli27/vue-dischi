@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 import Header from './components/Header.vue';
 import Main from './components/Main.vue';
@@ -23,6 +23,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+  @import "./assets/scss/style.scss";
 </style>
