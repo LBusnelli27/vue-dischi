@@ -12,8 +12,21 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'AlbumCard',
+
+  data : function() {
+    return{
+      albumList : []
+    }
+  },
+  mounted () {
+    axios
+      .get('https://flynn.boolean.careers/exercises/api/array/music')
+      .then(response => (this.albumList = response.response))
+  }
 }
 </script>
 
