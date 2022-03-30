@@ -21,6 +21,6 @@ export default {
   .my-bg-main {
     background-color: $darkBlueGray;
 
-    padding: 5rem 15rem;
+    padding: 5rem 10%;
   }
 </style>

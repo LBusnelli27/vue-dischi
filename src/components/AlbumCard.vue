@@ -1,11 +1,13 @@
 <template>
   <div>
-    <div class="card my-album-card" style="width: 18rem;">
-      <img src="https://metalitalia.com/wp-content/uploads/2018/11/Queen-Queen-II-1974.png" class="card-img-top" alt="">
-      <div class="card-body">
-        <h2>Titolo</h2>
-        <h5>Artista</h5>
-        <p>1993</p>
+    <div class="row">
+      <div v-for="(element, index) in albumList" :key="index" class="card my-album-card">
+        <img :src="element.poster" class="card-img-top" alt="">
+        <div class="card-body">
+          <h3>Titolo</h3>
+          <h5>Artista</h5>
+          <p>1993</p>
+        </div>
       </div>
     </div>
   </div>
@@ -25,8 +27,8 @@ export default {
   mounted () {
     axios
       .get('https://flynn.boolean.careers/exercises/api/array/music')
-      .then(response => (this.albumList = response.response))
-  }
+      .then(response => (this.albumList = response.data.response));
+  },
 }
 </script>
 
@@ -36,10 +38,15 @@ export default {
   .my-album-card {
     background-color: $lightBlueGray;
     padding: 1rem;
+    margin: 1rem;
     border-radius: .5rem;
+    width: calc((100% / 5) - 2rem);
+    img {
+      height: 50%;
+    }
     .card-body {
       text-align: center;
-      h2 {
+      h3 {
         color: white;
         margin-bottom: 2rem;
       }
