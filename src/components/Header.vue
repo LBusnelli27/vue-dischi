@@ -16,6 +16,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/style.scss";
+
   div {
     nav{
       background-color: $lightBlueGray;

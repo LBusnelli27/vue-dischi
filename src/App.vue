@@ -2,7 +2,6 @@
   <div id="app">
     <Header />
     <Main />
-    <AlbumCard />
   </div>
 </template>
 
@@ -11,14 +10,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import Header from './components/Header.vue';
 import Main from './components/Main.vue';
-import AlbumCard from './components/AlbumCard.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
-    Main,
-    AlbumCard
+    Main
   }
 }
 </script>
