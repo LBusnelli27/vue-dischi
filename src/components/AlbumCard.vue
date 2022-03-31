@@ -24,11 +24,25 @@ export default {
       albumList : []
     }
   },
+
+  props : ['inputSelect'],
+
+  methods: {
+    filteredAlbum() {
+      this.albumList = this.albumList.filter((element, index, array) => {
+        // se ritorno true all'ora l'elemento rimane nella nuova lista
+        if (element.genre.toLowerCase().contains(this.inputSelect)) return true;
+        // altrimenti non compare
+      });
+      console.log(this.albumList)
+    }
+  },
+
   mounted () {
     axios
       .get('https://flynn.boolean.careers/exercises/api/array/music')
       .then(response => (this.albumList = response.data.response));
-  },
+  }
 }
 </script>
 
