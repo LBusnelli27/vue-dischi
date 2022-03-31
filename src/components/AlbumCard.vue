@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row">
-      <div v-for="(element, index) in albumList" :key="index" class="card my-album-card">
+      <div v-for="(element, index) in filteredAlbum" :key="index" class="card my-album-card">
         <img :src="element.poster" class="card-img-top" alt="">
         <div class="card-body">
           <h3 class="fw-bold text-uppercase">{{ element.title }}</h3>
@@ -25,16 +25,19 @@ export default {
     }
   },
 
-  props : ['inputSelect'],
+  props : {
+    inputSelect : String
+    },
 
-  methods: {
+  computed: {
     filteredAlbum() {
-      this.albumList = this.albumList.filter((element, index, array) => {
-        // se ritorno true all'ora l'elemento rimane nella nuova lista
-        if (element.genre.toLowerCase().contains(this.inputSelect)) return true;
-        // altrimenti non compare
+      return this.albumList.filter((element) => {
+        if (this.inputSelect != 'default') {
+          if (element.genre.toLowerCase().includes(this.inputSelect)) return true;
+        } else {
+          return true
+        }
       });
-      console.log(this.albumList)
     }
   },
 
